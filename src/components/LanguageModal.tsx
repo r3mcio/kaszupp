@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "@/i18n/routing";
+import { useParams } from "next/navigation";
 import Cookies from "js-cookie";
 
 export default function LanguageModal() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
 
   useEffect(() => {
     // Check if the user has already selected a language
@@ -30,7 +32,7 @@ export default function LanguageModal() {
 
     // Route to new language
     // @ts-expect-error - dynamic params issue in type definition
-    router.replace({ pathname }, { locale });
+    router.replace({ pathname, params }, { locale });
   };
 
   return (
@@ -60,7 +62,7 @@ export default function LanguageModal() {
                   Welcome / Witaj
                 </h2>
                 <p className="text-zinc-400 text-sm md:text-base">
-                  Please select your preferred language to continue interacting with Skryty's Portfolio.
+                  Please select your preferred language to continue interacting with Skryty&apos;s Portfolio.
                   <br className="hidden md:block" />
                   <span className="opacity-60 text-xs mt-2 block">
                     You can always change it later in the top navigation menu.
