@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
@@ -10,8 +10,6 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springX = useSpring(cursorX, { stiffness: 500, damping: 28 });
-  const springY = useSpring(cursorY, { stiffness: 500, damping: 28 });
 
   const [isMounted, setIsMounted] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -61,8 +59,8 @@ export default function CustomCursor() {
       <motion.div
         className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
         style={{
-          x: springX,
-          y: springY,
+          x: cursorX,
+          y: cursorY,
           translateX: "-50%",
           translateY: "-50%",
         }}

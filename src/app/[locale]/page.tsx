@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import BilingualPlayer from "@/components/BilingualPlayer";
+import VideoDemosSection from "@/components/VideoDemosSection";
 import InfiniteLogoTicker from "@/components/InfiniteLogoTicker";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import StudioEquipment from "@/components/StudioEquipment";
@@ -40,17 +40,9 @@ export default function Home() {
             <AboutMe />
           </ScrollReveal>
 
-          {/* Player Section */}
-          <ScrollReveal id="demos" className="w-full max-w-screen-2xl mx-auto flex justify-center px-4 sm:px-6 lg:px-8 my-16 sm:my-24 relative z-20 scroll-mt-32" delay={0.1}>
-            <div className="w-full max-w-4xl">
-              <BilingualPlayer 
-                type="audio"
-                sources={{
-                  pl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                  en: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
-                }}
-              />
-            </div>
+          {/* Video Demos Section */}
+          <ScrollReveal delay={0.1}>
+            <VideoDemosSection />
           </ScrollReveal>
 
           <PortfolioGrid />
